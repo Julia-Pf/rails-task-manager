@@ -1,6 +1,22 @@
-<h2><%=@task.title%></h2>
-<p><%=@task.details%></p>
-<p><%=@task.completed%></p>
-<p><%= link_to "edit" , edit_path %></p>
-<p><%= link_to "delete" ,  task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-<p><%= link_to "all tasks" , tasks_path %></p>
+<div class="container">
+  <div class="row justify-content-center m-3">
+    <div class ="col-12 col-lg-6 align-items-center">
+     <div class="card">
+       <div class="card-body">
+        <h2 class="card-title"><%=@task.title%></h2>
+        <p class ="card-text"><%=@task.details%></p>
+        <p><% if @task.completed == true %>
+         <i class="fa-solid fa-square-check"></i>
+         <%else%>
+         <i class="fa-regular fa-square"></i>
+        <% end %></p>
+          <div>
+            <p class="btn btn-primary "><%= link_to "edit" , edit_path %></p>
+            <p class="btn btn-danger"><%= link_to "delete" ,  task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+            <p class="btn btn-info"><%= link_to "all tasks" , tasks_path %></p>
+          <div>
+        </div>
+        </div>
+      </div>
+  </div>
+</div>
